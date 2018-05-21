@@ -1,0 +1,51 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand"> Octans Award Tool </p>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/viewuser"><span class="glyphicon glyphicon-user"></span>View User</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div id="values">
+      <table class="table  table-bordered">
+        <tr>
+          <th class="col-lg-6 col-lg-offset-3">Recipient</th>
+          <th class="col-lg-6 col-lg-offset-3">Number of awards</th>
+        </tr>
+        {{#each result}}
+        <tr>
+          <td class="col-lg-6 col-lg-offset-3">{{this.name}}</td>
+          <td class="col-lg-6 col-lg-offset-3">{{this.number}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+    <div>
+      <img src={{imageUrl}}>
+    </div>
+    <div>
+      <h3> The winner of Employee of Month: {{winner}}</h3>
+    </div>
+    <div class="container">
+      <button type="button" class="btn btn-default btn-md" id="back">Back to Search</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<script>
+  $(document).ready(function() {
+    $('#back').on('click', function() {
+      window.location.replace("/search");
+      return false;
+    });
+  });
+</script>

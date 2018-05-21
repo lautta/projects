@@ -1,0 +1,118 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="nav navbar-brand">Octans Award Tool</p>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/viewuser"><span class="glyphicon glyphicon-user"></span>View User</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="col-lg-2 ">
+    <a href="/adduser"><span class="glyphicon glyphicon-plus"></span>add a user</a>
+  </div>
+  <div class="col-lg-4 ">
+    <a href="/search"><span class="glyphicon glyphicon-search"></span>Search award and Visualized Analysis</a>
+  </div>
+  <div class="col-lg-6 ">
+    <span class="pull-right">
+    <form  action="/viewuser" method="GET">
+      <select name ="selecttype" id="usertype">
+        <option  name="selecttype" value="/viewuser" selected = "selected" >--select a tag--</option>
+        <option name="selecttype" value="/viewuser"> All</option>
+        <option name="selecttype" value="/viewuser/user"> Normal user</option>
+        <option  name="selecttype" value="/viewuser/admin"> Administrator </option>
+        </select>
+        </form>
+      </span>
+  </div>
+  <div class="col-lg-12">
+    <p>
+    </P>
+  </div>
+</div>
+
+<div class="container">
+  <form action="/viewuser" method="POST">
+    <table class="table  table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Id</th>
+          <th>User name</th>
+          <th>User type</th>
+          <th>Email Address</th>
+          <th>Time created</th>
+          <th>Signature</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each result}}
+        <tr>
+          <td> <input type="checkbox" name="checkbox" value="{{this.id}}" /> </td>
+          <td>{{this.id}}</td>
+          <td> {{this.name}} </td>
+          <td> {{this.role}}</td>
+          <td> {{this.email}}</td>
+          <td> {{this.creation}} </td>
+          <td><img src="{{this.signature}}" /></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <button id="viewaward">View Awards</button>
+    <button id="edituser">Edit User</button>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#usertype').change(function() {
+      var newSelected = $(this).val();
+      window.location.href = newSelected;
+    });
+    $('input[type="checkbox"]').on('change', function() {
+      $('input[type="checkbox"]').not(this).prop('checked', false);
+    });
+    $('#viewaward').on('click', function() {
+      var id = [];
+      $.each($("input[name='checkbox']:checked"), function() {
+        id.push($(this).val());
+      });
+      if (id.length == 0) {
+        var url = "/viewuser/";
+        window.location.replace(url);
+        return false;
+      }
+      else {
+        var url = "/award/" + id[0];
+        window.location.replace(url);
+        return false;
+      }
+    });
+    $('#edituser').on('click', function() {
+      var id = [];
+      $.each($("input[name='checkbox']:checked"), function() {
+        id.push($(this).val());
+      });
+      if (id.length == 0) {
+        var url = "/viewuser/";
+        window.location.replace(url);
+        return false;
+      }
+      else {
+        var url = "/edit/" + id[0];
+        window.location.replace(url);
+        return false;
+      }
+    });
+
+
+  });
+</script>

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="nav navbar-brand">Octans Award Tool</p>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/viewuser"><span class="glyphicon glyphicon-user"></span>View User</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="form-group">
+    <p id="hidden" hidden>{{awarder_id}}</p>
+    <label for="id">ID: </label>
+    <p>{{id}}</p>
+    <label for="type">Type: </label>
+    <p>{{type}}</p>
+    <label for="recipient"> recipient: </label>
+    <p>{{recipient}}</p>
+    <label for="email"> Email: </label>
+    <p>{{email}}</p>
+    <label for="awarder"> Awarder: </label>
+    <p>{{awarder}}</p>
+  </div>
+  <div class="form-group">
+    <input type="submit" name="submit" class="btn btn-default center-block" value="Back to ViewUser" id="backtouser">
+  </div>
+  <div class="form-group">
+    <input type="submit" name="submit" class="btn btn-default center-block" value="Back to Search" id="backtosearch">
+  </div>
+</div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#backtouser').click(function() {
+      window.location.replace('/viewuser');
+      return false;
+    });
+
+    $('#backtosearch').click(function() {
+      window.location.replace('/search');
+      return false;
+    });
+  });
+</script>

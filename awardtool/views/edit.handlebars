@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="nav navbar-brand">Octans Award Tool</p>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/viewuser"><span class="glyphicon glyphicon-user"></span>View User</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <form action="/edit" method="post" enctype="multipart/form-data">
+<div class="form-group">
+  <label for="userid">ID: </label>
+  <input type="text" class="form-control" id="userid" name="userid" value="{{userid}}" readonly/>
+  <label for="type">Type: </label>
+  <input type="text" class="form-control" id="type" name="type" value="{{type}}" readonly/>
+  <label for="name"> Name: </label>
+  <input type="text" class="form-control" id="name" name="name" value="{{name}}"/ >
+  <label for="email"> Email: </label>
+  <input type="email" class="form-control" id="email" name="email" value="{{email}}"/ >
+  <label for="password"> Password: </label>
+  <input type="password" class="form-control" id="password" name="password" value="{{password}}"/ >
+  <label for="signature">Signature:</label>
+  <input type="file" class="form-control" id="signature" name="signature" accept="image/*">
+</div>
+<div class="form-group">
+  <input type="submit" name="submit" class="btn btn-default center-block" value="update">
+  </div>
+  <div class="form-group">
+  <input type="submit" name="submit" class="btn btn-default center-block" value="delete">
+  </div>
+  <div class="form-group">
+  <input type="submit" name="submit" class="btn btn-default center-block" value="cancel">
+    </div>
+    </form>
+    <div>
+      {{error}}
+    </div>
+</div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($('input:text[name=type]').val() == "admin") {
+          $('#name').prop('disabled', true);
+          $('#signature').prop('disabled', true);
+    } else {
+          $('#name').prop('disabled', false);
+          $('#signature').prop('disabled', false);
+    }
+  });
+      
+      
+</script>
+

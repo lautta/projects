@@ -1,0 +1,38 @@
+<div class="jumbotron text-center">
+  <h1 class="display-3" id="company-brand">Octans Award Tool</h1>
+</div>
+
+<div class="container">
+  <div class="well">
+    <h2 class="text-center">User Login</h2>
+    <form class="form-horizontal" method="POST" action="/login">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="uemail">Email</label>
+        <div class="col-sm-8">
+          <input type="email" name="uemail" id="uemail" class="form-control" placeholder="Email address" required autofocus>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="upassword">Password</label>
+        <div class="col-sm-8">
+          <input type="password" name="upassword" id="upassword" class="form-control" placeholder="Password" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <a href="/password">Forgot password?</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <button class="btn btn-default" name="submit" type="submit" value="login">Login!</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="error">
+    {{#if error}}
+    <p class="text-center"><span class="glyphicon glyphicon-remove"></span> {{error}}</p>
+    {{/if}}
+  </div>
+</div>

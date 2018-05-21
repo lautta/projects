@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="nav navbar-brand">Octans Award Tool</p>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/viewuser"><span class="glyphicon glyphicon-user"></span>View User</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <form action="/viewuser" method="POST">
+    <table class="table  table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Recipient</th>
+          <th>Email</th>
+          <th>Time awarded</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each result}}
+        <tr>
+          <td> <input type="checkbox" name="checkbox" value="{{this.id}}" /> </td>
+          <td> {{this.recipient}} </td>
+          <td> {{this.rec_email}}</td>
+          <td> {{this.awarded}} </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <button id="viewaward">View Detail</button>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#viewaward').on('click', function() {
+      var id = [];
+      $.each($("input[name='checkbox']:checked"), function() {
+        id.push($(this).val());
+      });
+      if (id.length == 0) {
+        var url = "/viewaward/";
+        window.location.replace(url)
+        return false;
+      }
+      else {
+        var url = "/viewaward/" + id[0];
+        window.location.replace(url);
+        return false;
+      }
+
+    });
+
+
+  });
+</script>

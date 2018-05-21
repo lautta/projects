@@ -1,0 +1,144 @@
+* {
+    border-radius: 0 !important;
+}
+
+.form-control:focus {
+    border-color: indianred;
+    box-shadow: none;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
+.table {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#success,
+#error,
+#status {
+    font-weight: bold;
+    margin-top: 5px;
+    color: indianred;
+}
+
+h3 {
+    font-weight: bold;
+    margin-top: 20px;
+    letter-spacing: 0px;
+}
+
+h1,
+h2 {
+    color: black;
+    letter-spacing: 0px;
+}
+
+#company-brand {
+    letter-spacing: 0px;
+    font-weight: bold;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.btn-default:active:focus {
+    color: white;
+    background-color: indianred;
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+    color: indianred;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.text-center {
+    margin-bottom: 25px;
+}
+
+.form-horizontal {
+    margin-top: 5px;
+}
+
+.well {
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: white;
+}
+
+label[for=uemail],
+label[for=upassword],
+label[for=remail],
+label[for=cemail],
+label[for=email] {
+    color: black;
+    font-weight: bold;
+}
+
+.award {
+    text-align: center;
+}
+
+.award img {
+    width: 25%;
+}
+
+.navbar {
+    margin-bottom: 50px !important;
+    background-color: black;
+    z-index: 9999;
+    border: 0;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 1px;
+    border-radius: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+    color: white !important;
+}
+
+.navbar-brand {
+    font-size: 24px !important;
+    letter-spacing: 0px;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-header .navbar-brand:hover {
+    color: indianred !important;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+    color: white !important;
+    background-color: dimgray !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: white !important;
+}
+
+.jumbotron {
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    font-family: 'Open Sans', sans-serif;
+}

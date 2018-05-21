@@ -1,0 +1,38 @@
+{
+  "name": "octans",
+  "version": "1.0.0",
+  "description": "Project for CS467. Octans: Employee Recognition Tool",
+  "main": "app.js",
+  "repository": "",
+  "author": "lautta@oregonstate.edu",
+  "dependencies": {
+    "async": "~0.2.8",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.3.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "favicon": "0.0.2",
+    "flash": "^1.1.0",
+    "jquery": "^3.2.1",
+    "mailgun-js": "^0.13.1",
+    "moment": "^2.19.2",
+    "mysql": "^2.15.0",
+    "path": "^0.12.7",
+    "quiche": "^0.3.0",
+    "serve-favicon": "^2.4.5",
+    "socket.io": "~0.9.14",
+    "validator": "^9.1.2"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cloudinary": "^1.9.1",
+    "express": "^4.13.4",
+    "jsdom": "^11.3.0"
+  }
+}

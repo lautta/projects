@@ -1,0 +1,73 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand"> Octans Award Tool </p>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/viewuser"><span class="glyphicon glyphicon-user"></span>View User</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <form action="/adduser" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <div class="radio-inline">
+        <label><input type="radio" name="accounttype" value="1" checked ="">normal user</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" name="accounttype" value="2">administrator</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-group">
+        <label for="user"> Name: </label>
+        <input type="text" class="form-control" id="name" name="name">
+        <label for="email"> Email: </label>
+        <input type="email" class="form-control" id="email" name="email">
+        <label for="password"> Password: </label>
+        <input type="password" class="form-control" id="password" name="password">
+        <label for="signature">Signature:</label>
+        <input type="file" class="form-control" id="signature" name="signature" accept="image/*">
+      </div>
+      <div class="form-group">
+        <input type="submit" name="submit" class="btn btn-default center-block" value="submit" id="submit">
+      </div>
+      <div class="form-group">
+        <input type="submit" name="submit" class="btn btn-default center-block" value="cancel" id="cancel">
+      </div>
+  </form>
+  </div>
+</div>
+<div>
+  {{error}}
+</div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('input:radio[name=accounttype]').click(function() {
+      var checkval = $('input:radio[name=accounttype]:checked').val();
+      if (checkval == "2") {
+        $('#name').prop('disabled', true);
+        $('#signature').prop('disabled', true);
+      }
+      if (checkval == "1") {
+        $('#name').prop('disabled', false);
+        $('#signature').prop('disabled', false);
+      }
+    });
+    $('#submit').click(function() {
+      $('#name').attr("required", true);
+      $('#email').attr("required", true);
+      $('#password').attr("required", true);
+      $('#signature').attr("required", true);
+    });
+    $('#cancel').click(function() {
+      $('#name').attr("required", false);
+      $('#email').attr("required", false);
+      $('#password').attr("required", false);
+      $('#signature').attr("required", false);
+    });
+  });
+</script>
